@@ -1,0 +1,21 @@
+.obj {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  width: 50%;
+}
+
+.obj:hover {
+  background-color: rgb(228, 249, 34);
+}
+
+.dropZones {
+  min-height: 100px;
+  border: 1px solid black;
+  margin-bottom: 20px;
+  transition: border 0.3s;
+}
+
+.dropZonesHover {
+  border: 6px dotted black;
+}
