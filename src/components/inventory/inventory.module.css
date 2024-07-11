@@ -1,6 +1,4 @@
 
-
-
 .obj {
   margin: 10px;
   padding: 10px;
@@ -14,8 +12,10 @@
   justify-content: center;
   transition: background-color 0.3s, box-shadow 0.3s;
   background-color: antiquewhite;
-
-
+}
+.font {
+ color:rgb(249, 247, 245);
+ 
 }
 
 .obj:hover {
@@ -44,7 +44,7 @@
   transition: border 0.3s;
   display: grid;
   grid-template-columns: 120px 120px 120px;
-  background-image: url("../mock/back.jpeg");
+  background-image: url("/src/mock/back.jpeg");
   background-size: cover;
 
 

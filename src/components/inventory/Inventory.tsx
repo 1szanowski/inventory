@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import data from "../data/data";
-import Item from "../interfaces/interface";
+import data from "../../data/data";
+import Item from "../../interfaces/interface";
 import styles from "./inventory.module.css";
 
 const Inventory = () => {
@@ -9,6 +9,7 @@ const Inventory = () => {
   const [armorState, setArmorState] = useState<Item[]>([]);
   const [draggableItem, setDraggableItem] = useState<Item | null>(null);
   const [hoveredZone, setHoveredZone] = useState<string | null>(null);
+
 
   const handleDragStart = (item: Item) => {
     setDraggableItem(item);
@@ -102,7 +103,7 @@ const Inventory = () => {
           hoveredZone === "target" ? styles.dropZonesHover : ""
         }`}
       >
-        <h3>Weapons:</h3>
+        <h3 className={styles.font}>Weapons:</h3>
         {targetObjects}
       </div>
 
@@ -114,12 +115,12 @@ const Inventory = () => {
           hoveredZone === "armour" ? styles.dropZonesHover : ""
         }`}
       >
-        <h3>Armor:</h3>
+        <h3 className={styles.font}>Armor:</h3>
         {armourObjects}
       </div>
       </div>
-      <h3>All inventory</h3>
 
+      <h3>All inventory</h3>
       <div
         onDragOver={(event) => handleDragOver(event, "source")}
         onDragLeave={handleDragLeave}

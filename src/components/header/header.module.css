@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  background-image: url("../../mock/artbreeder-image-2024-07-11T16_53_56.388Z.jpeg");
+  background-size: cover;
+  height: 100px;
+  align-items: center;
+  color: rgb(30, 2, 2);
+}
+
+.linkBox {
+  background-color: whitesmoke;
+  padding: 10px;
+  margin: 0 10px;
+  border-radius: 5px;
+}
