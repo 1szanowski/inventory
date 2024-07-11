@@ -13,3 +13,7 @@
   margin: 0 10px;
   border-radius: 5px;
 }
+
+.linkBox:hover {
+  transform: rotate(20deg); /* Rotate the link box on hover */
+}

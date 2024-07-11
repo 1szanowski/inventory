@@ -1,3 +1,7 @@
+.font {
+  color: rgb(249, 247, 245);
+
+}
 
 .obj {
   margin: 10px;
@@ -13,16 +17,46 @@
   transition: background-color 0.3s, box-shadow 0.3s;
   background-color: antiquewhite;
 }
-.font {
- color:rgb(249, 247, 245);
- 
-}
+
 
 .obj:hover {
   background-color: rgb(211, 205, 204);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 
 }
+
+
+
+/* Burning effect animation */
+@keyframes burning {
+  0% {
+    background-color: rgba(255, 0, 0, 0.5);
+    /* Red with transparency */
+    box-shadow: 0 0 10px 2px rgba(255, 0, 0, 0.8);
+    /* Red glow */
+  }
+
+  50% {
+    background-color: rgba(255, 0, 0, 0.7);
+    /* More intense red */
+    box-shadow: 0 0 15px 3px rgba(255, 0, 0, 0.9);
+    /* Stronger glow */
+  }
+
+  100% {
+    background-color: rgba(255, 0, 0, 0.5);
+    /* Back to initial color */
+    box-shadow: 0 0 10px 2px rgba(255, 0, 0, 0.8);
+    /* Back to initial glow */
+  }
+}
+
+.obj:hover {
+  animation: burning 1s infinite alternate;
+  /* Apply animation on hover */
+}
+
+
 
 .dropZones {
   min-height: 100px;
