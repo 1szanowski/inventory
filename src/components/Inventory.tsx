@@ -33,7 +33,7 @@ const Inventory = () => {
   };
 
   const handleDropToSource = () => {
-    if (draggableItem) {
+    if (draggableItem && !sourceData.find(el => el.id === draggableItem.id)) {
       setSourceData((prev) => [...prev, draggableItem]);
       setTargetStateObj((prev) =>
         prev.filter((el) => el.id !== draggableItem.id)
@@ -58,10 +58,11 @@ const Inventory = () => {
       className={styles.obj}
       draggable
       key={el.id}
-      onDragStart={() => handleDragStart(el)}>
+      onDragStart={() => handleDragStart(el)}
+    >
       <h3>{el.name}</h3>
       {el.hasOwnProperty("damage") ? (
-        <p> Damage: {el.damage}</p>
+        <p>Damage: {el.damage}</p>
       ) : (
         <p>Protection: {el.protection}</p>
       )}
@@ -73,7 +74,8 @@ const Inventory = () => {
       className={styles.obj}
       draggable
       key={el.id}
-      onDragStart={() => handleDragStart(el)}>
+      onDragStart={() => handleDragStart(el)}
+    >
       {el.name}
     </div>
   ));
@@ -83,32 +85,23 @@ const Inventory = () => {
       className={styles.obj}
       draggable
       key={el.id}
-      onDragStart={() => handleDragStart(el)}>
+      onDragStart={() => handleDragStart(el)}
+    >
       {el.name}
     </div>
   ));
 
   return (
     <div>
-      <h3>All inventory</h3>
-
-      <div
-        onDragOver={(event) => handleDragOver(event, "source")}
-        onDragLeave={handleDragLeave}
-        onDrop={handleDropToSource}
-        className={`${styles.dropZones} ${
-          hoveredZone === "source" ? styles.dropZonesHover : ""
-        }`}>
-        {sourceObjects}
-      </div>
-
+      <div className={styles.mainBack}>
       <div
         onDragOver={(event) => handleDragOver(event, "target")}
         onDragLeave={handleDragLeave}
         onDrop={handleDropToTarget}
         className={`${styles.dropZones} ${
           hoveredZone === "target" ? styles.dropZonesHover : ""
-        }`}>
+        }`}
+      >
         <h3>Weapons:</h3>
         {targetObjects}
       </div>
@@ -119,9 +112,23 @@ const Inventory = () => {
         onDrop={handleDropToArmour}
         className={`${styles.dropZones} ${
           hoveredZone === "armour" ? styles.dropZonesHover : ""
-        }`}>
+        }`}
+      >
         <h3>Armor:</h3>
         {armourObjects}
+      </div>
+      </div>
+      <h3>All inventory</h3>
+
+      <div
+        onDragOver={(event) => handleDragOver(event, "source")}
+        onDragLeave={handleDragLeave}
+        onDrop={handleDropToSource}
+        className={`${styles.dropZones_bottom} ${
+          hoveredZone === "source" ? styles.dropZonesHover : ""
+        }`}
+      >
+        {sourceObjects}
       </div>
     </div>
   );
